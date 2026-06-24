@@ -37,7 +37,7 @@ def load_image(path: str, hdu_index: int = 1):
     rgb_image : np.ndarray  shape (H, W, 3), dtype uint8
     header    : astropy FITS Header or None
     """
-    ext = os.path.splitext(path)[-1].lower()
+    ext = ''.join(pathlib.Path(path).suffixes).lower()  # catches .fits.fz, .fits.gz etc.
 
     if ext in (".fits", ".fit", ".fts"):
         return _load_fits(path, hdu_index)
