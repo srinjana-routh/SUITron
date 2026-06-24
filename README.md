@@ -38,9 +38,9 @@ suitron/
 ### 3. Run on your images
 
 ```python
-from suitron import SuiTronPredictor
+from suitron import SUITronPredictor
 
-predictor = SuiTronPredictor("path/to/model_final.pth")
+predictor = SUITronPredictor("path/to/model_final.pth")
 results = predictor.predict("path/to/your_solar_image.fits")
 
 results.show()                  # visualise detections
@@ -52,10 +52,10 @@ results.save("output/")         # save masks as PNG + FITS
 ### Python API
 
 ```python
-from suitron import SuiTronPredictor
+import SUITronPredictor
 
 # Load predictor
-predictor = SuiTronPredictor(
+predictor = SUITronPredictor(
     model_path="model_final.pth",
     score_threshold=0.4,   # detection confidence threshold (0–1)
     device="cuda",         # "cuda" or "cpu"
@@ -83,9 +83,9 @@ results.save("output/", fits_header=results.header)  # preserves FITS header if 
 
 ```python
 import os
-from suitron import SuiTronPredictor
+import SUITronPredictor
 
-predictor = SuiTronPredictor("model_final.pth")
+predictor = SUITronPredictor("model_final.pth")
 
 input_dir  = "images/"
 output_dir = "results/"
@@ -105,7 +105,7 @@ for fname in os.listdir(input_dir):
 
 ## Citation
 
-If you use SuiTron in your research, please cite:
+If you use SUITron in your research, please cite:
 
 ```bibtex
 @software{suitron,
