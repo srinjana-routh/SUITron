@@ -1,5 +1,5 @@
-# 🌞 SuiTron — Solar Feature Segmentation with Detectron2
-This is a deep learning model, primarily designed for filament extraction from full-disk observations from the Solar Ultraviolet Imaging Telescope (SUIT) aboard Aditya-L1. It uses a Mask R-CNN model trained on GONG Hα observations and can run on other passband images as well (GONG, IRIS Mg II K, Kodaikanal H-alpha).
+# 🌞 SUITron — Solar Feature Segmentation with Detectron2
+This is a deep learning model, primarily designed for filament extraction from full-disk observations from the Solar Ultraviolet Imaging Telescope (SUIT) aboard Aditya-L1. It uses a Mask R-CNN model trained on GONG Hα observations and can run on other passband images as well (IRIS Mg II, Kodaikanal H-alpha).
 
 ## What It Does
 
@@ -7,7 +7,7 @@ Given a solar image (FITS or JPG/PNG), **SuiTron**:
 
 1. Normalises and prepares the image for the model
 2. Runs Mask R-CNN instance segmentation
-3. Returns per-class binary masks for **filaments** (left-oriented, right-oriented and unidentifiable orientation) and **plages** (only for SUIt Mg II k)
+3. Returns per-class binary masks for **filaments** (left-oriented, right-oriented and unidentifiable orientation)
 
 ---
 
@@ -67,14 +67,9 @@ results = predictor.predict("20150910_gong.fits", hdu_index=1)
 # --- From a JPEG/PNG ---
 results = predictor.predict("20150910_gong.jpg")
 
-# --- From a NumPy array (already loaded) ---
-import numpy as np
-arr = np.load("my_image.npy")
-results = predictor.predict_array(arr)
-
 # Inspect results
 print(f"Found {results.num_instances} features")
-print(f"Classes: {results.class_names}")       # e.g. ['filament', 'plage']
+print(f"Classes: {results.class_names}")       # e.g. ['Left', 'Right', 'Unidentifiable']
 print(f"Scores: {results.scores}")             # detection confidences
 
 # Visualise
@@ -103,7 +98,7 @@ for fname in os.listdir(input_dir):
 
 ### Score threshold tuning
 
-- `0.4` (default) — good balance of recall and precision for GONG Hα
+- `0.4` (default) — good balance of recall and precision (tested on GONG Hα)
 - `0.5–0.6` — fewer, higher-confidence detections
 - `0.2–0.3` — more detections, may include faint features; increases false positives
 
