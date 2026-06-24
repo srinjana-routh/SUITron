@@ -3,7 +3,7 @@ This is a deep learning model, primarily designed for filament extraction from f
 
 ## What It Does
 
-Given a solar image (FITS or JPG/PNG), **SuiTron**:
+Given a solar image (FITS or JPG/PNG), **SUITron**:
 
 1. Normalises and prepares the image for the model
 2. Runs Mask R-CNN instance segmentation
