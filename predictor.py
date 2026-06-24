@@ -18,7 +18,7 @@ from .visualise import show_results
 
 # Default class names for the shipped model_final.pth
 # (filament = dark elongated structures; plage = bright chromospheric regions)
-DEFAULT_CLASS_NAMES = ["filament", "plage"]
+DEFAULT_CLASS_NAMES = ["Left", "Right", "Unidentifiable"]
 
 
 class SUITronResults:
@@ -119,7 +119,7 @@ class SUITronPredictor:
         score_threshold: float = 0.4,
         device: str = None,
         class_names: list = None,
-        num_classes: int = 2,
+        num_classes: int = 3,
     ):
         if not os.path.isfile(model_path):
             raise FileNotFoundError(
