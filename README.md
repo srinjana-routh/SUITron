@@ -98,9 +98,12 @@ for fname in os.listdir(input_dir):
 
 ### Score threshold tuning
 
-- `0.4` (default) — good balance of recall and precision (tested on GONG Hα)
+- `0.4` (default) — good balance of recall and precision (tested on GONG Hα; below example)
 - `0.5–0.6` — fewer, higher-confidence detections
 - `0.2–0.3` — more detections, may include faint features; increases false positives
+
+- <img width="1119" height="276" alt="image" src="https://github.com/user-attachments/assets/2db109ae-f8a0-4722-bbe8-34c34ce467b6" />
+
 
 
 ## Citation
