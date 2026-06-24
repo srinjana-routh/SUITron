@@ -1,0 +1,12 @@
+# SuiTron dependencies
+# Install Detectron2 separately from source:
+#   git clone https://github.com/facebookresearch/detectron2
+#   pip install -e detectron2/
+
+torch>=1.10
+torchvision
+pyyaml==5.1
+opencv-python
+numpy
+astropy
+matplotlib
